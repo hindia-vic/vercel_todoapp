@@ -8,11 +8,5 @@
                 "runtime": "python3.9"
             }
         }
-    ],
-    "routers": [
-        {
-            "src": "/(.*)",
-            "dest": "Todo/wsgi.py"
-        }
     ]
 }
