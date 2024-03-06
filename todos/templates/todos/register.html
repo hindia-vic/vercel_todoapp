@@ -1,0 +1,17 @@
+{% extends 'todos/layout.html' %}
+{% block content %}
+{% for message in messages %}
+{{message}}
+{% endfor %}
+<h1 class="text-center my-3 pb-3">Register Form</h1>
+<form action=""method='post' class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2">
+    {% csrf_token %}
+    <input type="text" class='form-control' name="username" placeholder="username">
+    <input type="email" class='form-control' name="email" placeholder="email">
+    <input type="password" class='form-control' name="password1" placeholder=" enter password">
+    <input type="password"  class='form-control' name="password2" placeholder="reenter password">
+    <input type="submit">
+</form> 
+<h1>Already have an account<a href="{% url 'login' %}">Login</a></h1>
+
+{% endblock content %}

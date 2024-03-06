@@ -1,0 +1,16 @@
+{% extends 'todos/layout.html' %}
+{% block content %}
+<h1 class="text-center my-3 pb-3">Login</h1>
+{% for message in messages %}
+{{message}}
+{% endfor %}
+<form action=""method='post'class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2">
+    {% csrf_token %}
+    <input type="text" class='form-control' placeholder="username" name="username">
+    <input type="password" class='form-control' placeholder="password" name="password">
+    <input type="submit">
+</form>
+<h1>Forgot password<a href="{% url 'reset_password' %}"><button style="background: firebrick; color: white;" type="submit"
+    class="btn btn-primary">Reset password</button></a></h1>
+<h1>Don't have an account<a href={% url 'register' %}>Signup</a></h1>
+{% endblock content %}

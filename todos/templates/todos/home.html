@@ -1,0 +1,46 @@
+{% extends 'todos/layout.html' %}
+  {% block content %}
+  <h4 class="text-center my-3 pb-3">Welcome:{{user.username}}</h4>
+              <form method="POST" class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2" action="todo">
+                {% csrf_token %}
+                <div class="col-12">
+                  <div class="form-outline">
+                    <input type="text"  class='form-control' name="title" placeholder="task">
+                    <input type="text"  class='form-control' name="content" placeholder="content">
+                  </div>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary">Add Task</button>
+                </div>
+              </form>
+              <a href="{% url 'logout' %}"><button style="background: firebrick; color: white;" type="submit"
+                  class="btn btn-primary">Logout</button></a>
+              <table class="table mb-4">
+                <thead>
+                  <tr>
+                    <th scope="col">Todo item</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for todo in todos reversed %}
+                  <tr>
+                    <td><a href="content/{{todo.id}}/">{{todo.title}}</a></td>
+  
+                    {% if todo.status == True %}
+                    <td>Completed</td>
+                    {% else %}
+                    <td>In progress</td>
+                    {% endif %}
+                    <td>
+                      <a href="delete/{{todo.id}}/"><button type="submit" class="btn btn-danger">Delete</button></a>
+                      <a href="edit/{{todo.id}}/"><button type="submit" class="btn btn-success ms-1">Edit</button></a>
+                      <a href="finish/{{todo.id}}"><button type="submit"
+                          class="btn btn-success ms-1">Finished</button></a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+ {% endblock content %}
