@@ -4,10 +4,5 @@
     "use":"@vercel/python",
     "config":{"maxLambdaSize": "15mb", "runtime": "python 3.9" }
   }],
-  "routers":[
-    {
-      "src":"/(.*)",
-      "dest":"Todo/wsgi.py"
-    }
-  ]
+ 
 }
