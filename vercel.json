@@ -3,6 +3,5 @@
     "src": "Todo/wsgi.py",
     "use":"@vercel/python",
     "config":{"maxLambdaSize": "15mb", "runtime": "python 3.9" }
-  }],
- 
+  }]
 }
